@@ -107,3 +107,7 @@ body {
 .links a:hover {
     text-decoration: underline;
 }
+
+.email {
+    padding: 100px;
+}
