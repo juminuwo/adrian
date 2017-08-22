@@ -75,6 +75,7 @@ body {
 
 .badge a:link {
     text-decoration: none;
+    color: black;
 }
 
 .badge a:visited {
