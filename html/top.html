@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="UTF-8"> 
+    <title>Adrian, front side.</title>
+    <script type="text/javascript" src="../js/jquery-3.2.1.js">   </script>
+    <script type="text/javascript" src=../js/main.js></script>
+    <script type="text/javascript" src=../js/img.js></script>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../sakura/jquery-sakura.min.js"></script>
+    
+    <link href="../css/main.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Comfortaa|Roboto" rel="stylesheet">
+    <link href="../sakura/jquery-sakura.css" rel="stylesheet" type="text/css">
+    <link href="../css/hover.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <div class="head">
+      <header>
+          <div class="badge">
+          <a href="top.html">
+          <h1>Adrian Liu</h1>
+          <h4>説いてもいいよ</h4>
+          </a>
+          </div>
+          <div class="nav">
+            <ul>
+                <li class="left"><a href="about.html">About</a></li>
+                <li class="left"><a >Japan</a></li>
+                <li class="left" style="float:right"><a class="active">&#x1F914</a></li>
+            </ul>
+          </div>
+      </header>
+    </div>
+    <a href="top.html">
+    <div class="img">
+        <script type="text/javascript">
+        document.write(getImageTag());
+        </script>
+    </div>   
+    </a>
+      
+    <script>
+$(window).load(function () {
+$('body').sakura({ 
+blowAnimations: ['blow-soft-left', 'blow-medium-left', 'blow-hard-left', 'blow-soft-right', 'blow-medium-right', 'blow-hard-right'], // Horizontal movement animation names
+className: 'sakura', // Class name to use
+fallSpeed: 1, // Factor for petal fall speed
+maxSize: 14, // Maximum petal size
+minSize: 9, // Minimum petal size
+newOn: 300, // Interval after which a new petal is added
+swayAnimations: ['sway-0', 'sway-1', 'sway-2', 'sway-3', 'sway-4', 'sway-5', 'sway-6', 'sway-7', 'sway-8'] // Swaying animation names
+});
+});
+    </script>
+  </body>
+</html>
