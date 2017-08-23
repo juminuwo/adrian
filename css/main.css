@@ -15,11 +15,21 @@ body {
 
 }
 
+h1 {
+    font-style: normal;
+    font-size: 37px;
+    font-family: "Source Code Pro", Monospace;
+    font-weight: 400;
+}
+
+h4 {
+    font-family: "Sawarabi Mincho", Serif;
+}
+
 .head {
     background-color: antiquewhite;
     width: 500px;
     padding: 10px 0 0 0;
-    font-family: "Comfortaa", cursive;
     margin: auto;
     text-align: center;
 }
@@ -38,7 +48,7 @@ body {
 }
 
 
-.head li a {
+.nav li a {
     transition: background-color 0.5s ease;
     border-right: 1px solid black;
     display: block;
@@ -47,6 +57,8 @@ body {
     padding: 6px 16px;
     text-decoration: none;
     height: 18px;
+    font-family: "Roboto", Monospace;
+    font-weight: normal;
 }
 
 .head li a:hover {
@@ -54,9 +66,12 @@ body {
 }
 
 .active {
-    background-color: black;
+    background-color: #EEE;
 }
 
+.butt li a{
+    border: none;
+}
 .content {
     //border: 1px solid #555;
     background-color: antiquewhite;
