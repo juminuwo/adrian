@@ -29,7 +29,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #555555;
+    background-color: #555;
 }
 
 .left {
@@ -58,9 +58,9 @@ body {
 }
 
 .content {
-    //border: 1px solid #555555;
+    //border: 1px solid #555;
     background-color: antiquewhite;
-    color: #555555;
+    color: #555;
     padding: 1px 10px;
     margin: 20px auto;
     font-family: "Roboto", sans-serif;
@@ -91,11 +91,10 @@ body {
     list-style-position: outside;
     margin: 15px 0;
     padding: 0;
-    font-size: 0.9em;
+    font-size: 13px;
 }
 
 a {
-    font-size: 0.9em;
     color: #487da8;
     font-weight:bold;
     text-decoration: none;
@@ -107,6 +106,10 @@ a:link {
 
 a:hover {
     text-decoration: underline;
+}
+
+.jap a {
+    font-size: 13px;
 }
 
 .email {
