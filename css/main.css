@@ -56,9 +56,10 @@ h4 {
     text-align: center;
     padding: 6px 16px;
     text-decoration: none;
-    height: 18px;
+    height: auto;
     font-family: "Roboto", Monospace;
     font-weight: normal;
+    font-size: 13px;
 }
 
 .head li a:hover {
@@ -71,6 +72,7 @@ h4 {
 
 .butt li a{
     border: none;
+    font-size: 12px
 }
 .content {
     //border: 1px solid #555;
