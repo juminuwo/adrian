@@ -6,6 +6,8 @@ html, body {
     overflow: auto;
     overflow-x: hidden;
     display: block;
+    background-image: url("../img/5235TES.jpg");
+    background-repeat: repeat;
     }
 
 
