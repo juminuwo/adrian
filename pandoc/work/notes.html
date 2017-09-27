@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../pandoc.css" type="text/css" />
+</head>
+<body>
+<h1 id="first-look-at-something-from-machine-learning">First look at something from Machine Learning</h1>
+<p>A brief document 'written' as a way to layout my thoughts on this new subject. Mostly just copying and rephrasing/paraphrasing. (written in markdown)</p>
+<h2 id="definitions-for-a-beginner">Definitions (for a Beginner)</h2>
+<p><strong>ANNs(Artificial neural networks)</strong> - Allow to generate dense vector representations (embeddings). &quot;ANNs, like people, learn by example. An ANN is configured for a specific application, such as pattern recognition or data classification, through a learning process.&quot;<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p><strong>Embeddings</strong> - Set of language modelling and feature learning techniques in natural language processing (NLP) where words or phrases from the vocabulary are mapped to vectors of real numbers.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
+<p><strong>Document-term matrix</strong> - Matrix that describes the frequency of terms that occur in a collection of documents.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a></p>
+<p><strong>Clustering</strong> - The task of grouping a set of objects in such a way that objects in the same group (cluster) are more similar to each other than to those in other clusters.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></p>
+<p><strong>Ground-truth</strong> - Information provided by direct observation (i.e. empirical evidence) as opposed to information provided by inference. The term &quot;ground truth&quot; refers to the accuracy of the training set's classification for supervised learning techniques.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a></p>
+<p><strong>Flat clustering</strong> - Creates a flat set of clusters without any explicit structure that would relate cluster to each other.<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a></p>
+<p><strong>Hierachical clustering</strong> - Outputs a hierarchy, a structure that is more informative than clusters returned by flat clustering.<a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a></p>
+<h2 id="bullet-points-on-breaking-news-prediction-document">Bullet Points on &quot;Breaking News Prediction&quot; document</h2>
+<h3 id="chapter-1-introduction">Chapter 1 (Introduction)</h3>
+<ul>
+<li><p>Evaluation of the character-based neural embeddings on the tweet clustering task.</p></li>
+<li><p>Show how to employ character-based tweet embeddings for the task for tweet clustering and demonstrate in the experimental evaluation that the proposed approach significantly outperforms the current state-of-the-art in tweet clustering for breaking new detection.</p></li>
+</ul>
+<h3 id="chapter-2-related-work">Chapter 2 (Related Work)</h3>
+<ul>
+<li><p>Word2vec is by far the most popular approach for creating embeddings.</p></li>
+<li><p>Extending the evaluation of the Tweet2Vec model to the tweet clustering task.</p></li>
+</ul>
+<h3 id="chapter-3-experimental-evaluation">Chapter 3 (Experimental Evaluation)</h3>
+<ul>
+<li>This chapter is relatively dense and concise. Bullet pointing doesn't seem applicable. <em>(Just re-read the document)</em></li>
+</ul>
+<blockquote>
+<p><strong>Dataset</strong></p>
+<p>Processing tweets and creating a subset which is less sparse.</p>
+<p><strong>Tweet representation approaches</strong></p>
+<p>Clustering tweets (using fuzzy string matching to generate partial labelling, then using different models (Tweet2Vec, TweetTerm) to generate embeddings, then employ hierarchical clustering algorithm).</p>
+<p>Cluster evaluation using standard metrics for evaluation on the partial labelled clusters.</p>
+<p>For threshold on hierarchical clustering we use grid search. Generate list of values in the range from 0.1 to 1.5 with 0.1 increment step and examine performance. Produce flat clusterings for each value of the distance threshold from the grid and compare them with respect to the quality metrics.</p>
+<p>Manual cluster evaluation by human evaluators on a selection from clusters now containing whole dataset.</p>
+</blockquote>
+<h3 id="chapter-4-results">Chapter 4 (Results)</h3>
+<h4 id="results-of-clustering-evaluation">Results of Clustering Evaluation</h4>
+<div class="figure">
+<img src="table1.png" title="Table 1: Results of clustering evaluation on the English-language dataset" alt="Table 1: Results of clustering evaluation on the English-language dataset" />
+<p class="caption">Table 1: Results of clustering evaluation on the English-language dataset</p>
+</div>
+<ul>
+<li><p>Results in table show scores of bests clusters per interval.</p></li>
+<li><p>Tweet2Vec exhibits better clustering performance comparing to the baseline according to the majority of the evaluation metrics.</p></li>
+<li><p>Tweet2Vec fails to perfectly separate the ground-truth clusters only at 18:00 interval. Thus Tweet2Bec us able to replicate the results of the fuzzy string matching algorithm that was used to generate the ground-truth labelling.</p></li>
+</ul>
+<div class="figure">
+<img src="figure1.png" title="Figure 1: Correlation between the V-Measure, Silhouette coefficient and the number of clusters per tweet (Tweet2Vec 22:00 interval). The vertical red line indicates the maximum V-Measure score." alt="Figure 1: Correlation between the V-Measure, Silhouette coefficient and the number of clusters per tweet (Tweet2Vec 22:00 interval). The vertical red line indicates the maximum V-Measure score." />
+<p class="caption">Figure 1: Correlation between the V-Measure, Silhouette coefficient and the number of clusters per tweet (Tweet2Vec 22:00 interval). The vertical red line indicates the maximum V-Measure score.</p>
+</div>
+<ul>
+<li>Optimal distance threshold for Tweet2Bec clustering according to V-Measure is on internal [0.8; 1] for 22:00 interval.</li>
+</ul>
+<h4 id="results-of-manual-cluster-evaluation">Results of Manual Cluster Evaluation</h4>
+<div class="figure">
+<img src="table2.png" title="Table 2: Results of manual cluster evaluation." alt="Table 2: Results of manual cluster evaluation." />
+<p class="caption">Table 2: Results of manual cluster evaluation.</p>
+</div>
+<ul>
+<li><p>Tweet2Vec highest total % and least number of incorrect clusters.</p></li>
+<li><p>Demonstated that Tweet2Vec is able to cluster tweets in different languages.</p></li>
+</ul>
+<h3 id="chapter-5-discussion">Chapter 5 (Discussion)</h3>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/cs11/report.html#Introduction%20to%20neural%20networks">https://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/cs11/report.html#Introduction%20to%20neural%20networks</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="https://en.wikipedia.org/wiki/Word_embedding" class="uri">https://en.wikipedia.org/wiki/Word_embedding</a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="https://en.wikipedia.org/wiki/Document-term_matrix" class="uri">https://en.wikipedia.org/wiki/Document-term_matrix</a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="https://en.wikipedia.org/wiki/Cluster_analysis" class="uri">https://en.wikipedia.org/wiki/Cluster_analysis</a><a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p><a href="https://en.wikipedia.org/wiki/Ground_truth" class="uri">https://en.wikipedia.org/wiki/Ground_truth</a><a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p><a href="https://nlp.stanford.edu/IR-book/html/htmledition/flat-clustering-1.html#ch:flatclust" class="uri">https://nlp.stanford.edu/IR-book/html/htmledition/flat-clustering-1.html#ch:flatclust</a><a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p><a href="https://nlp.stanford.edu/IR-book/html/htmledition/hierarchical-clustering-1.html#ch:hierclust" class="uri">https://nlp.stanford.edu/IR-book/html/htmledition/hierarchical-clustering-1.html#ch:hierclust</a><a href="#fnref7">↩</a></p></li>
+</ol>
+</div>
+</body>
+</html>
